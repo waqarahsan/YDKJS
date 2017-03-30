@@ -22,7 +22,7 @@ while (amount < bankBalance) { //continue to buy phone if it is under balance
   if (amount < SPENDING_THRES) { //buy accessory if under threshold
     amount = amount + ACCESORY_COST;
   } else {
-    console.log("Sorry, no accessories for you.");
+    bankBalance = bankBalance - amount;
   }
 }
 
