@@ -5,26 +5,31 @@ const PHONE_COST = 159.99;
 const ACCESORY_COST = 14.99;
 const SPENDING_THRES = 200;
 
-var amount = PHONE_COST + ACCESORY_COST;
+var amount = 0;
 
-function withTax(amt) {
-  amt = amt + (amt * TAX_RATE);
-  return amt;
+function withTax(amount) { //to calculate the tax
+  return amt * TAX_RATE;
 }
 
-function dollarFormat(plusTax) {
-  plusTax = "$" + plusTax.toFixed(2);
-  return plusTax;
+function dollarFormat(amount) { //format the amount to dollar format
+  return "$" + amount.toFixed(2);
 }
 
-if (amount < SPENDING_THRES) {
-  amount = withTax(amount);
-} else {
-  console.log("No, thank you.");
+
+while (amount < bankBalance) { //continue to buy phone if it is under balance
+  amount = amount + PHONE_COST;
+
+  if (amount < SPENDING_THRES) { //buy accessory if under threshold
+    amount = amount + ACCESORY_COST;
+  } else {
+    console.log("Sorry, no accessories for you.");
+  }
 }
 
-while (amount < bankBalance) {
-  bankBalance = bankBalance - amount;
-}
+amount = amount + withTax(amount);
 
-console.log("Amount:" + dollarFormat(amount) + " ; " + "BankBalance:" + dollarFormat(bankBalance));
+console.log("Your purchase: " + dollarFormat(amount));
+
+if (amount > bankBalance){
+  console.log("This purchase is above your means.")
+}
