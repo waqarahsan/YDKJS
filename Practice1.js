@@ -3,7 +3,7 @@ var bankBalance = prompt("What is your bank balance?");
 const TAX_RATE = 0.08;
 const PHONE_COST = 159.99;
 const ACCESORY_COST = 14.99;
-const SPENDING_THRES = 200;
+const SPENDING_THRES = 500;
 
 var amount = 0;
 
@@ -21,8 +21,6 @@ while (amount < bankBalance) { //continue to buy phone if it is under balance
 
   if (amount < SPENDING_THRES) { //buy accessory if under threshold
     amount = amount + ACCESORY_COST;
-  } else {
-    bankBalance = bankBalance - amount;
   }
 }
 
