@@ -8,7 +8,7 @@ const SPENDING_THRES = 200;
 var amount = 0;
 
 function withTax(amount) { //to calculate the tax
-  return amt * TAX_RATE;
+  return amount * TAX_RATE;
 }
 
 function dollarFormat(amount) { //format the amount to dollar format
